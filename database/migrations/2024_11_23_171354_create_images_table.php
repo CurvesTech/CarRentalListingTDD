@@ -1,7 +1,5 @@
 <?php
 
-use App\Enums\CarShape;
-use App\Models\CarModel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('car_models', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('maker_id')->constrained('makers', 'id')->onDelete('cascade');
-            $table->string('title');
-            $table->enum('shape', CarShape::values());
+            $table->foreignId('listing_id')->constrained();
+            $table->string('path');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('car_models');
+        Schema::dropIfExists('images');
     }
 };
