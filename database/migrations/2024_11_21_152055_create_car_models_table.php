@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('maker_id')->constrained('makers', 'id')->onDelete('cascade');
             $table->string('title');
             $table->enum('shape', config('business_domain.shapes'));
-            $table->timestamps();   
+            $table->timestamps();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CarShape;
 use App\Models\Maker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,7 +21,7 @@ class CarModelFactory extends Factory
         return [
             'maker_id' => Maker::factory(),
             'title' => $this->faker->name,
-            'shape' => $this->faker->randomElement(config('business_domain.shapes')),
+            'shape' => $this->faker->randomElement(CarShape::values()),
         ];
     }
 }
