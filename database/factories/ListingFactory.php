@@ -18,9 +18,7 @@ class ListingFactory extends Factory
     {
         return $this->afterCreating(function (Listing $listing) {
             $listing->images()->createMany([
-                ['path' => 'images/1.jpg'],
-                ['path' => 'images/2.jpg'],
-                ['path' => 'images/3.jpg'],
+                ['path' => 'http://placehold.it/500x500']
             ]);
         });
     }
