@@ -22,4 +22,8 @@ class Listing extends Model
     public function model() {
         return $this->belongsTo(CarModel::class);
     }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -61,4 +61,11 @@ class ListingsController extends Controller
         
         return redirect()->route('listings.index');
     }
+
+    public function destroy(Listing $listing) {
+        Gate::authorize('delete', $listing);
+        $listing->images()->delete();
+        $listing->delete();
+        return redirect()->route('listings.index');
+    }
 }

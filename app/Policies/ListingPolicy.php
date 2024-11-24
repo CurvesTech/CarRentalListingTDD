@@ -18,4 +18,8 @@ class ListingPolicy
     public function edit(User $user, Listing $listing): bool {
         return $user->id == $listing->user_id;
     }
+
+    public function delete(User $user, Listing $listing) : bool {
+        return $user->id == $listing->user_id;
+    }
 }

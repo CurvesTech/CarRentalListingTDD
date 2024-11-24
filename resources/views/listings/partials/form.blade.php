@@ -96,10 +96,6 @@
             <x-input-error class="mt-2" :messages="$errors->get('phone_number')"/>
         </div>
         {{-- /Phone number --}}
-
-        <div class="mt-4">
-            <x-primary-button>{{ __('Create') }}</x-primary-button>
-        </div>  
     </div>
     <div x-data="imagePreview()" class="max-w-2xl">
         <div>

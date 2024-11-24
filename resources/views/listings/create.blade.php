@@ -9,6 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <form action="{{ route('listings.store') }}" method="POST" enctype="multipart/form-data">
                 @include('listings.partials.form')
+
+                <div class="mt-4">
+                    <x-primary-button>{{ __('Create') }}</x-primary-button>
+                </div>  
             </form>
         </div>
     </div>

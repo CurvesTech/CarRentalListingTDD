@@ -13,16 +13,5 @@
         {{ $listing->phone_number }}
     </p>
 
-    <div class="mt-4 flex gap-2">
-        <a class="border dark:border-gray-600 px-4 py-2 rounded-lg" href="{{ route('listings.edit', $listing) }}">
-            {{ __('Edit') }}
-        </a>
-        <form action="{{ route('listings.destroy', $listing) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button class="border dark:border-gray-600 px-4 py-2 rounded-lg" type="submit">
-                {{ __('Delete') }}
-            </button>
-        </form>
-    </div>
+    {{ $slot }}
 </div>

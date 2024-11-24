@@ -10,6 +10,10 @@
             <form action="{{ route('listings.update', $listing->id) }}" method="POST" enctype="multipart/form-data">
                 @method('put')
                 @include('listings.partials.form')
+
+                <div class="mt-4">
+                    <x-primary-button>{{ __('Edit') }}</x-primary-button>
+                </div>  
             </form>
         </div>
     </div>

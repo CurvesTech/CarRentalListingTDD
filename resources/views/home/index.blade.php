@@ -12,7 +12,11 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        {{ $slot }}
+    <body class="font-sans antialiased dark:bg-black dark:text-white/50 p-8">
+        <div class="grid grid-cols-3 gap-4">
+            @foreach($listings as $listing)
+                <x-listing :listing="$listing" />
+            @endforeach
+        </div>
     </body>
 </html>
