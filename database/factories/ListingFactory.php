@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\Maker;
 use App\Models\Listing;
 use App\Models\CarModel;
@@ -32,6 +33,7 @@ class ListingFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
+            'user_id' => User::factory(),
             'maker_id' => Maker::factory(),
             'model_id' => CarModel::factory(),
             'year' => $this->faker->year,

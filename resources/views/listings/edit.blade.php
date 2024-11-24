@@ -1,13 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Create Listing') }}
+            {{ __('Edit Listing') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <form action="{{ route('listings.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('listings.update', $listing->id) }}" method="POST" enctype="multipart/form-data">
+                @method('put')
                 @include('listings.partials.form')
             </form>
         </div>
@@ -16,7 +17,7 @@
     <script>
         function mountMakers() {
             return {
-                selectedMaker: {{ $makers->first()->id }},
+                selectedMaker: {{ $listing->maker_id }},
                 models: @json($models)
             };
         }
