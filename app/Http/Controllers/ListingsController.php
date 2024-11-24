@@ -25,6 +25,12 @@ class ListingsController extends Controller
             $path = $image->store('images', 'public');
             $listing->images()->create(['path' => $path]);
         }
-        return redirect()->route('listings');
+        return redirect()->route('listings.index');
+    }
+
+    public function index(Request $request) {
+        return view('listings/index', [
+            'listings' => $request->user()->listings
+        ]);
     }
 }

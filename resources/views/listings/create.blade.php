@@ -15,7 +15,7 @@
                             <x-input-label for="title">
                                 {{ __('Title') }}
                             </x-input-label>
-                            <x-text-input id="title" name="title" type="text" class="w-full mt-1 block"/>
+                            <x-text-input id="title" name="title" type="text" class="w-full mt-1 block" value="{{ old('title') }}"/>
                             <x-input-error class="mt-2" :messages="$errors->get('title')"/>
                         </div>
                         <div class="mt-4">
@@ -49,7 +49,10 @@
                             </x-input-label>
                             <x-select-input id="year" name="year" class="mt-2 w-full">
                                 @for($i = date('Y'); $i >= 1960; $i--)
-                                    <option value="{{ $i }}">{{ $i }}</option>
+                                    <option 
+                                        value="{{ $i }}" 
+                                        @if(old('year') == $i) selected @endif
+                                    >{{ $i }}</option>
                                 @endfor
                             </x-select-input>
                             <x-input-error class="mt-2" :messages="$errors->get('year')"/>
@@ -61,7 +64,7 @@
                             <x-input-label for="registration_number">
                                 {{ __('Registration Number') }}
                             </x-input-label>
-                            <x-text-input id="registration_number" name="registration_number" class="w-full mt-2" />
+                            <x-text-input id="registration_number" name="registration_number" class="w-full mt-2" value="{{ old('registration_number') }}" />
                             <x-input-error class="mt-2" :messages="$errors->get('registration_number')"/>
                         </div>
                         {{-- /registration number --}}
@@ -72,8 +75,14 @@
                                 {{ __('Transmission') }}
                             </x-input-label>
                             <x-select-input id="transmission" name="transmission" class="mt-2 w-full">
-                                <option value="manual">{{ __('Manual') }}</option>
-                                <option value="automatic">{{ __('Automatic') }}</option>
+                                <option 
+                                    value="manual"
+                                    @if(old('transmission') == 'manual') selected @endif
+                                >{{ __('Manual') }}</option>
+                                <option 
+                                    value="automatic"
+                                    @if(old('transmission') == 'automatic') selected @endif
+                                >{{ __('Automatic') }}</option>
                             </x-select-input>
                             <x-input-error class="mt-2" :messages="$errors->get('transmission')"/>
                         </div>
@@ -84,7 +93,7 @@
                             <x-input-label for="price">
                                 {{ __('Price per day') }}
                             </x-input-label>
-                            <x-text-input id="price" name="price_per_day" class="w-full mt-2" />
+                            <x-text-input id="price" name="price_per_day" class="w-full mt-2" value="{{ old('price_per_day') }}" />
                             <x-input-error class="mt-2" :messages="$errors->get('price_per_day')" />
                         </div>
                         {{-- /price --}}
@@ -94,12 +103,10 @@
                             <x-input-label for="phone_number">
                                 {{ __('Phone Number') }}
                             </x-input-label>
-                            <x-text-input id="phone_number" name="phone_number" class="w-full mt-2" />
+                            <x-text-input id="phone_number" name="phone_number" class="w-full mt-2" value="{{ old('phone_number') }}" />
                             <x-input-error class="mt-2" :messages="$errors->get('phone_number')"/>
                         </div>
                         {{-- /Phone number --}}
-
-
 
                         <div class="mt-4">
                             <x-primary-button>{{ __('Create') }}</x-primary-button>

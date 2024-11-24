@@ -69,7 +69,7 @@ class CreateListingFeatureTest extends TestCase
 
         $response = $this->post(route('listings.store'), $data);
 
-        $response->assertRedirect(route('listings'));
+        $response->assertRedirect(route('listings.index'));
 
         $listing = Listing::where('user_id', $user->id)
             ->where('title', 'My Car')->first();
